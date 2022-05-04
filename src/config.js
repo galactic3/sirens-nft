@@ -1,6 +1,6 @@
-// todo: get contract name from environment variable
-// const CONTRACT_NAME = 'dev-1622556560424-4870693';
-let CONTRACT_NAME;
+const CONTRACT_NAME = process.env.REACT_APP_CONTRACT_NAME
+
+console.log("CONTRACT_NAME =", CONTRACT_NAME);
 
 function getConfig(env) {
   switch (env) {
@@ -9,8 +9,7 @@ function getConfig(env) {
       return {
         networkId: 'mainnet',
         nodeUrl: 'https://rpc.mainnet.near.org',
-        // contractName: CONTRACT_NAME,
-        contractName: 'pluminite.near',
+        contractName: CONTRACT_NAME,
         walletUrl: 'https://wallet.near.org',
         helperUrl: 'https://helper.mainnet.near.org',
         explorerUrl: 'https://explorer.mainnet.near.org',
@@ -20,7 +19,7 @@ function getConfig(env) {
       return {
         networkId: 'testnet',
         nodeUrl: 'https://rpc.testnet.near.org',
-        // contractName: CONTRACT_NAME,
+        contractName: CONTRACT_NAME,
         contractName: 'dev-1622556560424-4870693',
         walletUrl: 'https://wallet.testnet.near.org',
         helperUrl: 'https://helper.testnet.near.org',
